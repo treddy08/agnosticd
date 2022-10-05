@@ -10,7 +10,7 @@ arch=x86_64
 tarball=openshift-client-linux.tar.gz
 url="https://mirror.openshift.com/pub/openshift-v4/${arch}/clients/ocp/${version}/${tarball}"
 curl -s -L "${url}" -o ${tarball}
-tar xzf ${tarball}
+tar xvf ${tarball}
 install -t /usr/bin oc kubectl
 
 # Bitwarden
