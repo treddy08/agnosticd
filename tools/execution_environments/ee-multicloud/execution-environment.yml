@@ -4,10 +4,10 @@ version: 1
 build_arg_defaults:
   # Get the full list from:
   # https://catalog.redhat.com/software/containers/search?p=1&build_categories_list=Automation%20Execution%20Environment
-  EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:stable-2.12-latest'
+  #EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:stable-2.12-latest'
   #EE_BASE_IMAGE: registry.redhat.io/ansible-automation-platform-21/ee-29-rhel8:latest
   #EE_BASE_IMAGE: registry.redhat.io/ansible-automation-platform-21/ee-supported-rhel8:1.0.1-102
-  #EE_BASE_IMAGE: registry.redhat.io/ansible-automation-platform-21/ee-minimal-rhel8:latest
+  EE_BASE_IMAGE: registry.redhat.io/ansible-automation-platform-21/ee-minimal-rhel8:latest
 
 ansible_config: 'ansible.cfg'
 
@@ -21,11 +21,11 @@ additional_build_steps:
     RUN whoami
     RUN cat /etc/os-release
     COPY install_binaries.sh install_binaries.sh
-    COPY abs.sh abs.sh
+    RUN pwd
+    RUN ls ~/
   append:
     - RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
     - COPY azure-cli.repo /etc/yum.repos.d/azure-cli.repo
     - RUN microdnf install -y azure-cli
     - RUN pip3 freeze
-    - RUN pwd && ls -a
     - RUN ./install_binaries.sh
