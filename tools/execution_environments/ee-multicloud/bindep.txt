@@ -1,4 +1,3 @@
-qemu-utils
 bind-utils
 curl
 findutils
