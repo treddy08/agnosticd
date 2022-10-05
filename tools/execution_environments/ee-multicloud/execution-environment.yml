@@ -26,5 +26,5 @@ additional_build_steps:
     - COPY azure-cli.repo /etc/yum.repos.d/azure-cli.repo
     - RUN microdnf install -y azure-cli
     - RUN pip3 freeze
-    - RUN ls -a
+    - RUN pwd && ls -a
     - RUN ./install_binaries.sh
