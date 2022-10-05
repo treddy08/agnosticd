@@ -20,6 +20,7 @@ additional_build_steps:
   prepend: |
     RUN whoami
     RUN cat /etc/os-release
+    RUN yum install -y qemu-img
     COPY install_binaries.sh install_binaries.sh
   append:
     - RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
