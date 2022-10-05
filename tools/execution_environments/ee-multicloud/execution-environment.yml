@@ -21,7 +21,7 @@ additional_build_steps:
     RUN whoami
     RUN cat /etc/os-release
     COPY install_binaries.sh /tmp/install_binaries.sh
-    RUN cp /tmp/install_binaries.sh .
+    RUN cp /tmp/install_binaries.sh . && ls -a
     
   append:
     - RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
