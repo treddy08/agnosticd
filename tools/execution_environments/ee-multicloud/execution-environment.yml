@@ -20,7 +20,6 @@ additional_build_steps:
   prepend: |
     RUN whoami
     RUN cat /etc/os-release
-    RUN chmod -R 777 /runner
     COPY install_binaries.sh /tmp/install_binaries.sh
     RUN ls /tmp
     
